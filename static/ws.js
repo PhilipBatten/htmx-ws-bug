@@ -340,6 +340,14 @@ This extension adds support for WebSockets to htmx.  See /www/extensions/ws.md f
           var results = api.getInputValues(sendElt, 'post')
           var errors = results.errors
           var rawParameters = Object.assign({}, results.values)
+          for (var key in rawParameters) {
+            if (key.endsWith('[]')) {
+                if (!Array.isArray(rawParameters[key])) {
+                    rawParameters[key] = [rawParameters[key]]
+                }
+            }
+          }
+
           var expressionVars = api.getExpressionVars(sendElt)
           var allParameters = api.mergeObjects(rawParameters, expressionVars)
           var filteredParameters = api.filterValues(allParameters, sendElt)
