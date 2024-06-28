@@ -29,6 +29,7 @@ type SubmitRequestForm struct {
 
 func main() {
 	e := echo.New()
+	e.Static("/static", "static")
 	e.GET("/", func(c echo.Context) error {
 		component := templates.Homepage()
 		c.Response().Header().Set(echo.HeaderContentType, echo.MIMETextHTML)
