@@ -20,11 +20,11 @@ var (
 
 type SubmitRequest struct {
 	Name      string   `json:"name"`
-	ArrayData []string `json:"arrayData[]"`
+	ArrayData []string `json:"items[]"`
 }
 type SubmitRequestForm struct {
 	Name      string   `form:"name"`
-	ArrayData []string `form:"arrayData[]"`
+	ArrayData []string `form:"items[]"`
 }
 
 func main() {

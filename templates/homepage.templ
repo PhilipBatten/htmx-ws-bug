@@ -5,7 +5,8 @@ templ Homepage () {
         <head>
             <title>WS testing</title>
             <script src="https://unpkg.com/htmx.org@2.0.0"></script>
-            <script src="/static/ws.js"></script>
+            // <script src="/static/ws.js"></script>
+            <script src="https://unpkg.com/htmx-ext-ws@2.0.0/ws.js"></script>
         </head>
         <body>
             <div hx-ext="ws" ws-connect="/ws/submit">
@@ -13,15 +14,15 @@ templ Homepage () {
                 <div>
                     <form ws-send>
                         <input type="text" name="name" value="single array item">
-                        <input type="text" name="arrayData[]" value="a">
+                        <input type="text" name="items[]" value="a">
                         <button type="submit" >submit</button>
                     </form>
                 </div>
                 <div>
                     <form ws-send>
                         <input type="text" name="name" value="multiple array item">
-                        <input type="text" name="arrayData[]" value="a">
-                        <input type="text" name="arrayData[]" value="b">
+                        <input type="text" name="items[]" value="a">
+                        <input type="text" name="items[]" value="b">
                         <button type="submit" >submit</button>
                     </form>
                 </div>
@@ -31,15 +32,15 @@ templ Homepage () {
                 <div>
                     <form method="post" action="/submit">
                         <input type="text" name="name" value="single array item">
-                        <input type="text" name="arrayData[]" value="a">
+                        <input type="text" name="items[]" value="a">
                         <button type="submit" >submit</button>
                     </form>
                 </div>
                 <div>
                     <form method="post" action="/submit">
                         <input type="text" name="name" value="multiple array item">
-                        <input type="text" name="arrayData[]" value="a">
-                        <input type="text" name="arrayData[]" value="b">
+                        <input type="text" name="items[]" value="a">
+                        <input type="text" name="items[]" value="b">
                         <button type="submit" >submit</button>
                     </form>
                 </div>
